@@ -1,0 +1,10 @@
+<% (1..@players).to_a.each do |player| %>
+  <h1>Player <%=player%>: <span id=player_<%= player %>>0</span></h1>
+<% end %>
+
+<input id="next" type="button" value="next" />
+<input id="pause" type="button" value="pause" />
+
+<script src="chessclock.js" type="text/javascript"></script>
+
+<script type="text/javascript">setUpClocks(<%= @players %>);</script>

@@ -4,17 +4,22 @@ get '/' do
   erb :index
 end
 
+get '/chessclock' do
+  @players = validate_number(params['p'], 3)
+  erb :chessclock
+end
+
 get '/timer' do
-  @time = validate_time(params['t'])
+  @time = validate_number(params['t'], 60)
   erb :timer
 end
 
 helpers do
-  def validate_time(time)
-    valid_time = 60
-    return valid_time if time.nil?
-    time.gsub!(/[^0-9]/, "")
-    return valid_time if time.empty?
-    return time
+  def validate_number(num, default)
+    default ||= -1
+    return default if num.nil?
+    num.gsub!(/[^0-9]/, "")
+    return default if num.empty?
+    return num.to_i
   end
 end
