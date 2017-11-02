@@ -1,8 +1,12 @@
 require 'sinatra'
 
 get '/' do
-  @time = validate_time(params['t'])
   erb :index
+end
+
+get '/timer' do
+  @time = validate_time(params['t'])
+  erb :timer
 end
 
 helpers do
