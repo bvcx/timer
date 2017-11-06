@@ -8,15 +8,15 @@ var isPaused;
 function countdown() {
   if (!isPaused) {
     clocks[currentPlayer]++;
-    document.getElementById(currentPlayerName()).innerHTML = '<b>' + clocks[currentPlayer] +'</b>';
+    document.getElementById(currentPlayerId()).innerHTML = '<b>' + clocks[currentPlayer] +'</b>';
     setTimeout('countdown()', 1000);
   }
 }
 
 // this is to be called from the view
-function setUpClocks(players) {
-  numPlayers = players
-  clocks = new Array(players).fill(0);
+function setUpClocks(numberOfPlayers) {
+  numPlayers = numberOfPlayers
+  clocks = new Array(numberOfPlayers).fill(0);
   currentPlayer = -1;
   isPaused = false;
 }
@@ -49,7 +49,7 @@ function nextPlayer() {
   return (currentPlayer + 1) % numPlayers
 }
 
-function currentPlayerName() {
+function currentPlayerId() {
   return 'player_' + (currentPlayer + 1);
 }
 

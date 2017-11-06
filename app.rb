@@ -5,8 +5,8 @@ get '/' do
 end
 
 get '/chessclock' do
-  player_names = validate_array(params['n'])
-  num_players = validate_number(params['p'], 3)
+  player_names = arrayify_names(params['names'])
+  num_players = validate_number(params['p'], 2)
   players = (1..num_players).to_a
   player_names.each_with_index do |name,i|
     players[i] = name
@@ -21,9 +21,9 @@ get '/timer' do
 end
 
 helpers do
-  def validate_array(array)
-    return [] if array.nil?
-    return array
+  def arrayify_names(names)
+    return [] if names.nil?
+    return names.split(',')
   end
 
   def validate_number(num, default)

@@ -2,8 +2,14 @@
 
 <p> Slow players can make board games less fun. </p>
 <p> I've written some stripped-down timer apps to help slow players play faster. </p>
-<p> Here they are: </p>
+<p> Simple timers: </p>
 <p><a href="/timer?t=15">15 second timer</a></p>
 <p><a href="/timer?t=30">30 second timer</a></p>
 <p><a href="/timer?t=45">45 second timer</a></p>
-<p><a href="/chessclock">3 player chessclock</a></p>
+<p> Chess clocks: </p>
+<form action="/chessclock">
+  <p>Player Names: <input type="text" name="names"></p>
+  <input type="submit">
+</form>
+<p><a href="/chessclock">2 player chessclock</a></p>
+<p><a href="/chessclock?p=3">3 player chessclock</a></p>

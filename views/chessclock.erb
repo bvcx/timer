@@ -1,5 +1,5 @@
-<% @players.each do |player| %>
-  <h1>Player <%=player%>: <span id=player_<%= player %>>0</span></h1>
+<% @players.each_with_index do |player,i| %>
+  <h1>Player <%=player%>: <span id=player_<%= i+1 %>>0</span></h1>
 <% end %>
 
 <input id="next" type="button" value="next" />
@@ -7,4 +7,4 @@
 
 <script src="chessclock.js" type="text/javascript"></script>
 
-<script type="text/javascript">setUpClocks(<%= @players %>);</script>
+<script type="text/javascript">setUpClocks(<%= @players.length %>);</script>
