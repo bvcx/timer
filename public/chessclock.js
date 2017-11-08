@@ -1,14 +1,14 @@
 
 var numPlayers;
 var clocks;
-var currentPlayer;
+var currentPlayerId;
 var isPaused;
 
 // this is internal
 function countdown() {
   if (!isPaused) {
-    clocks[currentPlayer]++;
-    document.getElementById(currentPlayerId()).innerHTML = '<b>' + clocks[currentPlayer] +'</b>';
+    clocks[currentPlayerId]++;
+    currentPlayer().getElementsByClassName('clock')[0].innerHTML = '<b>' + clocks[currentPlayerId] +'</b>';
     setTimeout('countdown()', 1000);
   }
 }
@@ -17,19 +17,18 @@ function countdown() {
 function setUpClocks(numberOfPlayers) {
   numPlayers = numberOfPlayers
   clocks = new Array(numberOfPlayers).fill(0);
-  currentPlayer = -1;
-  isPaused = false;
+  currentPlayerId = 0;
+  isPaused = true;
+  currentPlayer().className = 'active';
 }
 
 // this is to be called on click anywhere
 function next() {
   if (!isPaused) {
-    if (currentPlayer == -1) {
-      currentPlayer = nextPlayer();
-      countdown();
-    } else {
-      currentPlayer = nextPlayer();
-    }
+    var pastPlayerId = currentPlayerId;
+    currentPlayer().className = 'inactive';
+    currentPlayerId = nextPlayerId();
+    currentPlayer().className = 'active';
   }
 }
 
@@ -45,12 +44,13 @@ function pause() {
 
 // helpers:
 
-function nextPlayer() {
-  return (currentPlayer + 1) % numPlayers
+function nextPlayerId() {
+  return (currentPlayerId + 1) % numPlayers
 }
 
-function currentPlayerId() {
-  return 'player_' + (currentPlayer + 1);
+function currentPlayer() {
+  var id = 'player_' + (currentPlayerId + 1);
+  return document.getElementById(id);
 }
 
 // listeners:
