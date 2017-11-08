@@ -55,5 +55,5 @@ function currentPlayer() {
 
 // listeners:
 
-document.getElementById('next').onclick = next;
-document.getElementById('pause').onclick = pause;
+document.getElementById('nextarea').onclick = next;
+document.getElementById('pausearea').onclick = pause;
