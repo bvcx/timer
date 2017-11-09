@@ -2,10 +2,15 @@
   color: blue;
 }
 
+h1 {
+  font-size: 38;
+  font-family: monospace;
+}
+
 #next-area {
   background-color: cadetblue;
   display: grid;
-  height: 80.0vh;
+  height: 70.0vh;
   justify-items: center;
 }
 
@@ -18,6 +23,7 @@
 
 .bottom-space {
   align-self: end;
+  overflow: auto;
 }
 
 .middle-space {
