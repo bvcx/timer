@@ -1,13 +1,17 @@
 <link rel="stylesheet" type="text/css" href="<%= url("/styles.css")%>">
-<div id='nextarea'>
+<div id='next-area'>
   <% @players.each_with_index do |player,i| %>
     <h1 id='player_<%= i+1 %>' >Player <%=player%>: <span class='clock'>0</span></h1>
   <% end %>
-  <p class='label'> Next Player </p>
+  <div class='bottom-space'>
+    <h1 class='label'> Next Player </h1>
+  </div>
 </div>
 
-<div id='pausearea'>
-  <p class='label'> Start / Pause / Resume </p>
+<div id='pause-area'>
+  <div class=middle-space>
+    <h1 class='label'> Start / Pause / Resume </h1>
+  </div>
 </div>
 
 <script src="chessclock.js" type="text/javascript"></script>

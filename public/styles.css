@@ -2,18 +2,24 @@
   color: blue;
 }
 
-#nextarea {
+#next-area {
   background-color: cadetblue;
-  height: 80.0vh
+  display: grid;
+  height: 80.0vh;
+  justify-items: center;
 }
 
-#pausearea {
+#pause-area {
   background-color: steelblue;
+  display: grid;
   height: 20.0vh;
+  justify-items: center;
 }
 
-.label{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.bottom-space {
+  align-self: end;
+}
+
+.middle-space {
+  align-self: center;
 }

@@ -24,12 +24,10 @@ function setUpClocks(numberOfPlayers) {
 
 // this is to be called on click anywhere
 function next() {
-  if (!isPaused) {
-    var pastPlayerId = currentPlayerId;
-    currentPlayer().className = 'inactive';
-    currentPlayerId = nextPlayerId();
-    currentPlayer().className = 'active';
-  }
+  var pastPlayerId = currentPlayerId;
+  currentPlayer().className = 'inactive';
+  currentPlayerId = nextPlayerId();
+  currentPlayer().className = 'active';
 }
 
 // pause button
@@ -55,5 +53,5 @@ function currentPlayer() {
 
 // listeners:
 
-document.getElementById('nextarea').onclick = next;
-document.getElementById('pausearea').onclick = pause;
+document.getElementById('next-area').onclick = next;
+document.getElementById('pause-area').onclick = pause;
